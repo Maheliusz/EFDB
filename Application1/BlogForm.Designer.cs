@@ -44,8 +44,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.blogBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.postsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.blogDataGridView = new System.Windows.Forms.DataGridView();
-            this.postsDataGridView = new System.Windows.Forms.DataGridView();
             this.blogFilterID = new System.Windows.Forms.TextBox();
             this.filterButton = new System.Windows.Forms.Button();
             this.postFilterID = new System.Windows.Forms.TextBox();
@@ -54,21 +52,31 @@
             this.postFilterTitle = new System.Windows.Forms.TextBox();
             this.postFilterContent = new System.Windows.Forms.TextBox();
             this.postFilterBlog = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userDataGridView = new System.Windows.Forms.DataGridView();
+            this.blogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.blogsDataGridView = new System.Windows.Forms.DataGridView();
+            this.postsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blogBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingNavigator)).BeginInit();
             this.blogBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blogDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blogsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blogsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +106,7 @@
             this.blogBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.blogBindingNavigator.Name = "blogBindingNavigator";
             this.blogBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.blogBindingNavigator.Size = new System.Drawing.Size(948, 25);
+            this.blogBindingNavigator.Size = new System.Drawing.Size(870, 25);
             this.blogBindingNavigator.TabIndex = 0;
             this.blogBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -201,36 +209,6 @@
             this.postsBindingSource.DataMember = "Posts";
             this.postsBindingSource.DataSource = this.blogBindingSource;
             // 
-            // blogDataGridView
-            // 
-            this.blogDataGridView.AutoGenerateColumns = false;
-            this.blogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.blogDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.blogDataGridView.DataSource = this.blogBindingSource;
-            this.blogDataGridView.Location = new System.Drawing.Point(12, 71);
-            this.blogDataGridView.Name = "blogDataGridView";
-            this.blogDataGridView.Size = new System.Drawing.Size(423, 361);
-            this.blogDataGridView.TabIndex = 1;
-            this.blogDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.blogDataGridView_CellContentClick);
-            // 
-            // postsDataGridView
-            // 
-            this.postsDataGridView.AutoGenerateColumns = false;
-            this.postsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.postsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn8});
-            this.postsDataGridView.DataSource = this.postsBindingSource;
-            this.postsDataGridView.Location = new System.Drawing.Point(441, 70);
-            this.postsDataGridView.Name = "postsDataGridView";
-            this.postsDataGridView.Size = new System.Drawing.Size(493, 362);
-            this.postsDataGridView.TabIndex = 2;
-            // 
             // blogFilterID
             // 
             this.blogFilterID.Location = new System.Drawing.Point(46, 44);
@@ -240,9 +218,9 @@
             // 
             // filterButton
             // 
-            this.filterButton.Location = new System.Drawing.Point(402, 42);
+            this.filterButton.Location = new System.Drawing.Point(361, 42);
             this.filterButton.Name = "filterButton";
-            this.filterButton.Size = new System.Drawing.Size(75, 23);
+            this.filterButton.Size = new System.Drawing.Size(63, 23);
             this.filterButton.TabIndex = 6;
             this.filterButton.Text = "Filter";
             this.filterButton.UseVisualStyleBackColor = true;
@@ -250,7 +228,7 @@
             // 
             // postFilterID
             // 
-            this.postFilterID.Location = new System.Drawing.Point(483, 44);
+            this.postFilterID.Location = new System.Drawing.Point(430, 44);
             this.postFilterID.Name = "postFilterID";
             this.postFilterID.Size = new System.Drawing.Size(96, 20);
             this.postFilterID.TabIndex = 7;
@@ -271,72 +249,135 @@
             // 
             // postFilterTitle
             // 
-            this.postFilterTitle.Location = new System.Drawing.Point(585, 44);
+            this.postFilterTitle.Location = new System.Drawing.Point(532, 44);
             this.postFilterTitle.Name = "postFilterTitle";
             this.postFilterTitle.Size = new System.Drawing.Size(96, 20);
             this.postFilterTitle.TabIndex = 10;
             // 
             // postFilterContent
             // 
-            this.postFilterContent.Location = new System.Drawing.Point(687, 44);
+            this.postFilterContent.Location = new System.Drawing.Point(634, 44);
             this.postFilterContent.Name = "postFilterContent";
             this.postFilterContent.Size = new System.Drawing.Size(96, 20);
             this.postFilterContent.TabIndex = 11;
             // 
             // postFilterBlog
             // 
-            this.postFilterBlog.Location = new System.Drawing.Point(789, 44);
+            this.postFilterBlog.Location = new System.Drawing.Point(736, 44);
             this.postFilterBlog.Name = "postFilterBlog";
             this.postFilterBlog.Size = new System.Drawing.Size(96, 20);
             this.postFilterBlog.TabIndex = 12;
             // 
-            // dataGridViewTextBoxColumn4
+            // userDataGridView
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "PostId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "PostId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.userDataGridView.AutoGenerateColumns = false;
+            this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.userDataGridView.DataSource = this.userBindingSource;
+            this.userDataGridView.Location = new System.Drawing.Point(12, 271);
+            this.userDataGridView.Name = "userDataGridView";
+            this.userDataGridView.Size = new System.Drawing.Size(371, 196);
+            this.userDataGridView.TabIndex = 12;
+            this.userDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userDataGridView_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn5
+            // blogsBindingSource
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.blogsBindingSource.DataMember = "Blogs";
+            this.blogsBindingSource.DataSource = this.userBindingSource;
             // 
-            // dataGridViewTextBoxColumn6
+            // blogsDataGridView
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Content";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Content";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.blogsDataGridView.AutoGenerateColumns = false;
+            this.blogsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.blogsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.blogsDataGridView.DataSource = this.blogsBindingSource;
+            this.blogsDataGridView.Location = new System.Drawing.Point(12, 70);
+            this.blogsDataGridView.Name = "blogsDataGridView";
+            this.blogsDataGridView.Size = new System.Drawing.Size(371, 195);
+            this.blogsDataGridView.TabIndex = 12;
+            this.blogsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.blogsDataGridView_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn8
+            // postsDataGridView
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Blog";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Blog";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.postsDataGridView.AutoGenerateColumns = false;
+            this.postsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.postsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn15});
+            this.postsDataGridView.DataSource = this.postsBindingSource;
+            this.postsDataGridView.Location = new System.Drawing.Point(389, 71);
+            this.postsDataGridView.Name = "postsDataGridView";
+            this.postsDataGridView.Size = new System.Drawing.Size(461, 194);
+            this.postsDataGridView.TabIndex = 12;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PostId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "PostId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Content";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Content";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Blog";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Blog";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             // 
             // blogBindingSource
             // 
             this.blogBindingSource.DataSource = typeof(Application1.Blog);
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "BlogID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "BlogID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "BlogID";
+            this.dataGridViewTextBoxColumn11.HeaderText = "BlogID";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Url";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Url";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Url";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Url";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Application1.User);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "UserName";
+            this.dataGridViewTextBoxColumn9.HeaderText = "UserName";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // blogBindingSource1
             // 
@@ -346,7 +387,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 444);
+            this.ClientSize = new System.Drawing.Size(870, 476);
+            this.Controls.Add(this.postsDataGridView);
+            this.Controls.Add(this.blogsDataGridView);
+            this.Controls.Add(this.userDataGridView);
             this.Controls.Add(this.postFilterBlog);
             this.Controls.Add(this.postFilterContent);
             this.Controls.Add(this.postFilterTitle);
@@ -355,8 +399,6 @@
             this.Controls.Add(this.postFilterID);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.blogFilterID);
-            this.Controls.Add(this.postsDataGridView);
-            this.Controls.Add(this.blogDataGridView);
             this.Controls.Add(this.blogBindingNavigator);
             this.Name = "BlogForm";
             this.Text = "BlogForm";
@@ -365,9 +407,12 @@
             this.blogBindingNavigator.ResumeLayout(false);
             this.blogBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.blogDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blogsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blogsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blogBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -391,16 +436,7 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton blogBindingNavigatorSaveItem;
         private System.Windows.Forms.BindingSource postsBindingSource;
-        private System.Windows.Forms.DataGridView blogDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridView postsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.TextBox blogFilterID;
         private System.Windows.Forms.BindingSource blogBindingSource1;
         private System.Windows.Forms.Button filterButton;
@@ -410,5 +446,19 @@
         private System.Windows.Forms.TextBox postFilterTitle;
         private System.Windows.Forms.TextBox postFilterContent;
         private System.Windows.Forms.TextBox postFilterBlog;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.DataGridView userDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.BindingSource blogsBindingSource;
+        private System.Windows.Forms.DataGridView blogsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridView postsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
 }

@@ -82,6 +82,14 @@
     <Compile Include="Migrations\201710281554103_AddPrintingMethods.Designer.cs">
       <DependentUpon>201710281554103_AddPrintingMethods.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710301530211_AddUserBlogs.cs" />
+    <Compile Include="Migrations\201710301530211_AddUserBlogs.Designer.cs">
+      <DependentUpon>201710301530211_AddUserBlogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710301551029_AddBlogUsers.cs" />
+    <Compile Include="Migrations\201710301551029_AddBlogUsers.Designer.cs">
+      <DependentUpon>201710301551029_AddBlogUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
@@ -119,6 +127,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710281554103_AddPrintingMethods.resx">
       <DependentUpon>201710281554103_AddPrintingMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710301530211_AddUserBlogs.resx">
+      <DependentUpon>201710301530211_AddUserBlogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710301551029_AddBlogUsers.resx">
+      <DependentUpon>201710301551029_AddBlogUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,5 +12,6 @@ namespace Application1
         [Key]
         public string UserName { get; set; }
         public string Description { get; set; }
+        public virtual List<Blog> Blogs { get; set; }
     }
 }

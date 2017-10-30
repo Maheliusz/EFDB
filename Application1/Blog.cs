@@ -12,5 +12,8 @@ namespace Application1
         public string Name { get; set; }
         public string Url { get; set; }
         public virtual List<Post> Posts { get; set; }
+
+        public string UserName { get; set; }
+        public virtual User User { get; set; }
     }
 }

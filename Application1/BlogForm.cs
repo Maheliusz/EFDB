@@ -23,8 +23,10 @@ namespace Application1
         {
             bContext = new BloggingContext();
             bContext.Blogs.Load();
+            bContext.Users.Load();
             this.blogBindingSource.DataSource = bContext.Blogs.Local.ToBindingList();
             this.postsBindingSource.DataSource = bContext.Posts.Local.ToBindingList();
+            this.userBindingSource.DataSource = bContext.Users.Local.ToBindingList();
         }
 
         private void blogBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -32,10 +34,10 @@ namespace Application1
             bContext.SaveChanges();
         }
 
-        private void setPostsDatSourceMethodSyntax(DataGridViewCellEventArgs e)
+        private void setPostsDataSourceMethodSyntax(DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
-            string filter = blogDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string filter = blogsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             this.postsDataGridView.DataSource =
             bContext.Posts
                 .Where(post => post.BlogID.ToString() == filter)
@@ -51,7 +53,7 @@ namespace Application1
 
         private void setPostsDatSourceQuerySyntax(DataGridViewCellEventArgs e)
         {
-            string filter = blogDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string filter = blogsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             IEnumerable<Post> query =
                 from p in bContext.Posts
                 where p.BlogID.ToString() == filter
@@ -61,7 +63,7 @@ namespace Application1
 
         private void blogDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            setPostsDatSourceMethodSyntax(e);
+            setPostsDataSourceMethodSyntax(e);
             this.postsDataGridView.Update();
             this.postsDataGridView.Refresh();
         }
@@ -88,7 +90,7 @@ namespace Application1
                     BlogId = post.BlogID,
                     Blog = post.Blog.Name.ToString()
                 }).ToList();
-            this.blogDataGridView.DataSource =
+            this.blogsDataGridView.DataSource =
             bContext.Blogs
                 .Where(blog =>
                 (blogFilterID.Text != "" ? blog.BlogID.ToString().Contains(blogFilterID.Text) : true)
@@ -103,10 +105,34 @@ namespace Application1
                     Name = blog.Name,
                     Url = blog.Url
                 }).ToList();
-            this.blogDataGridView.Update();
-            this.blogDataGridView.Refresh();
+            this.blogsDataGridView.Update();
+            this.blogsDataGridView.Refresh();
             this.postsDataGridView.Update();
             this.postsDataGridView.Refresh();
+        }
+
+        private void blogsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            setPostsDataSourceMethodSyntax(e);
+            this.postsDataGridView.Update();
+            this.postsDataGridView.Refresh();
+        }
+
+        private void userDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            setBlogsDataSourceQuerySyntax(e);
+            this.blogsDataGridView.Update();
+            this.blogsDataGridView.Refresh();
+        }
+
+        private void setBlogsDataSourceQuerySyntax(DataGridViewCellEventArgs e)
+        {
+            string filter = userDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            IEnumerable<Blog> query =
+                from p in bContext.Blogs
+                where p.UserName.ToString() == filter
+                select p;
+            this.blogsDataGridView.DataSource = query.ToList();
         }
     }
 }

@@ -10,8 +10,6 @@ namespace Application1
 {
     class Program
     {
-        private BloggingContext db;
-
         private static void printWithMethodSyntax(BloggingContext db)
         {
             Console.WriteLine("Blog names and post titles, query syntax:");
